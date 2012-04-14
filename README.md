@@ -1,6 +1,6 @@
 # rails-params-checker
 
-Description goes here.
+A DSL for checking request parameters, raises exceptions when check failed.
 
 ## Contributing to rails-params-checker
  
