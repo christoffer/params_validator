@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe RailsParamsChecker::Filter do
+describe ParamsValidator::Filter do
   it 'should test something'
 end
 

@@ -13,10 +13,10 @@ require 'rake'
 
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
-  gem.name = 'rails-params-checker'
-  gem.homepage = 'https://github.com/chdorner/rails-params-checker'
+  gem.name = 'params_validator'
+  gem.homepage = 'https://github.com/chdorner/params_validator'
   gem.license = 'MIT'
-  gem.summary = %Q{A DSL for checking request parameters, raises exceptions when check failed}
+  gem.summary = %Q{A DSL for validating request parameters, raises exceptions when validation failed}
   gem.email = 'christof@chdorner.me'
   gem.authors = ['Christof Dorner']
   gem.files = Dir.glob('lib/**/*.rb')

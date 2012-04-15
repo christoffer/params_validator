@@ -1,8 +1,8 @@
-# rails-params-checker
+# params_validator
 
-A DSL for checking request parameters, raises exceptions when check failed.
+A DSL for validating request parameters, raises exceptions when validation failed.
 
-## Contributing to rails-params-checker
+## Contributing to params_validator
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
