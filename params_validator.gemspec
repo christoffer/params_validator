@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "params_validator"
-  s.version = "0.0.1"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Christof Dorner"]
@@ -19,7 +19,13 @@ Gem::Specification.new do |s|
     "lib/params_validator.rb",
     "lib/params_validator/class_methods.rb",
     "lib/params_validator/filter.rb",
-    "lib/params_validator/railtie.rb"
+    "lib/params_validator/railtie.rb",
+    "lib/params_validator/validator.rb",
+    "lib/params_validator/validator/type_array.rb",
+    "lib/params_validator/validator/type_float.rb",
+    "lib/params_validator/validator/type_hash.rb",
+    "lib/params_validator/validator/type_integer.rb",
+    "lib/params_validator/validator/type_string.rb"
   ]
   s.homepage = "https://github.com/chdorner/params_validator"
   s.licenses = ["MIT"]
