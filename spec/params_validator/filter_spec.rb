@@ -32,7 +32,13 @@ describe ParamsValidator::Filter do
     )
   end
 
-  it 'should call Array validator'
+  it 'should call Array validator' do
+    ParamsValidator::Validator::TypeArray.should_receive(:valid?).with([]) { true }
+    ParamsValidator::Filter.validate_params(
+      { 'field_name' => [] },
+      { :field_name => { :with => [:type_array] } }
+    )
+  end
 
   it 'should raise InvalidParamsException when validator returns false' do
     ParamsValidator::Validator::TypeInteger.stub(:valid?) { false }
