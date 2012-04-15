@@ -3,6 +3,7 @@ Bundler.require(:default)
 
 module ParamsValidator
   class InvalidParamsException < Exception; end
+  class InvalidValidatorException < Exception; end
 end
 
 require 'params_validator/class_methods'
