@@ -22,7 +22,13 @@ describe ParamsValidator::Filter do
     )
   end
 
-  it 'should call String validator'
+  it 'should call String validator' do
+    ParamsValidator::Validator::TypeString.should_receive(:valid?).with('a string') { true }
+    ParamsValidator::Filter.validate_params(
+      { 'field_name' => 'a string' },
+      { :field_name => { :with => [:type_string] } }
+    )
+  end
 
   it 'should call Hash validator' do
     ParamsValidator::Validator::TypeHash.should_receive(:valid?).with({}) { true }
