@@ -16,7 +16,7 @@ Jeweler::Tasks.new do |gem|
   gem.name = 'params_validator'
   gem.homepage = 'https://github.com/chdorner/params_validator'
   gem.license = 'MIT'
-  gem.summary = %Q{A DSL for validating request parameters, raises exceptions when validation failed}
+  gem.summary = %Q{A DSL for validating request parameters, raises exceptions when validation failed. Currently only supports Rails.}
   gem.email = 'christof@chdorner.me'
   gem.authors = ['Christof Dorner']
   gem.files = Dir.glob('lib/**/*.rb')

@@ -1,6 +1,8 @@
 # params_validator
 
-A DSL for validating request parameters, raises exceptions when validation failed.
+A DSL for validating request parameters, raises exceptions when validation failed. Currently only supports Rails.
+
+Current status is very much alpha, this gem is still under development and not intended to use in production applications.
 
 ## Contributing to params_validator
  
