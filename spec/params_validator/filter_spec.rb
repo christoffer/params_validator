@@ -9,22 +9,28 @@ describe ParamsValidator::Filter do
   it 'should call Integer validator' do
     ParamsValidator::Validator::TypeInteger.should_receive(:valid?).with(42) { true }
     ParamsValidator::Filter.validate_params(
-      { 'int' => 42 },
-      { :int => { :with => [:type_integer] } }
+      { 'field_name' => 42 },
+      { :field_name => { :with => [:type_integer] } }
     )
   end
 
   it 'should call Float validator' do
     ParamsValidator::Validator::TypeFloat.should_receive(:valid?).with(4.2) { true }
     ParamsValidator::Filter.validate_params(
-      { 'float' => 4.2 },
-      { :float => { :with => [:type_float] } }
+      { 'field_name' => 4.2 },
+      { :field_name => { :with => [:type_float] } }
     )
   end
 
   it 'should call String validator'
 
-  it 'should call Hash validator'
+  it 'should call Hash validator' do
+    ParamsValidator::Validator::TypeHash.should_receive(:valid?).with({}) { true }
+    ParamsValidator::Filter.validate_params(
+      { 'field_name' => {} },
+      { :field_name => { :with => [:type_hash] } }
+    )
+  end
 
   it 'should call Array validator'
 
@@ -32,8 +38,8 @@ describe ParamsValidator::Filter do
     ParamsValidator::Validator::TypeInteger.stub(:valid?) { false }
     lambda do
       ParamsValidator::Filter.validate_params(
-        { 'int' => 42 },
-        { :int => { :with => [:type_integer] } }
+        { 'field_name' => 42 },
+        { :field_name => { :with => [:type_integer] } }
       )
     end.should raise_error ParamsValidator::InvalidParamsException
   end
