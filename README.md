@@ -96,6 +96,19 @@ Basic usage:
 * `ids=1`
 * `ids[1]=true`
 
+### Presence
+
+    validate_params_for :search, { :q => { :with => [:presence] } }
+
+**Valid:**
+
+* `q=term`
+
+**Invalid:**
+
+* `q=`
+* `somethingelse=term`
+
 ## Contributing to params_validator
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
