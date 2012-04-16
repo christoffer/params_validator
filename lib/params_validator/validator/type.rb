@@ -1,6 +1,8 @@
 module ParamsValidator
   module Validator
     module TypeInteger
+      def self.error_message; "is not of type integer"; end
+
       def self.valid?(value)
         return true unless Presence.valid?(value)
 
@@ -14,6 +16,8 @@ module ParamsValidator
     end
 
     module TypeFloat
+      def self.error_message; "is not of type float"; end
+
       def self.valid?(value)
         return true unless Presence.valid?(value)
 
@@ -27,6 +31,8 @@ module ParamsValidator
     end
 
     module TypeString
+      def self.error_message; "is not of type string"; end
+
       def self.valid?(value)
         return true unless Presence.valid?(value)
 
@@ -35,6 +41,8 @@ module ParamsValidator
     end
 
     module TypeArray
+      def self.error_message; "is not of type array"; end
+
       def self.valid?(value)
         return true unless Presence.valid?(value)
 
@@ -43,6 +51,8 @@ module ParamsValidator
     end
 
     module TypeHash
+      def self.error_message; "is not of type hash"; end
+
       def self.valid?(value)
         return true unless Presence.valid?(value)
 

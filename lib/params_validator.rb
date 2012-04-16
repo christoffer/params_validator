@@ -2,8 +2,10 @@ require 'bundler/setup'
 Bundler.require(:default)
 
 module ParamsValidator
-  class InvalidParamsException < Exception; end
   class InvalidValidatorException < Exception; end
+  class InvalidParamsException < Exception
+    attr_accessor :errors
+  end
 end
 
 require 'params_validator/class_methods'

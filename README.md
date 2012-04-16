@@ -109,6 +109,23 @@ Basic usage:
 * `q=`
 * `somethingelse=term`
 
+## Validation errors
+
+When validation of parameters fails, this gem is raising a `ParamsValidator::InvalidParamsException` error which contains an `errors` hash with further information.
+
+The `errors` hash is modeled after the Rails model validation errors like this:
+
+    {
+      :field_name => 'error description',
+      :integer_field => 'is not of type integer'
+    }
+
+As briefly described in the example at the beginning, the easiest way to rescue from validation errors is with a `rescue_from` block inside your controller, like this:
+
+    rescue_from ParamsValidator::InvalidParamsException do |exception|
+      render :json => { :errors => exception.errors }, :status => :bad_request
+    end
+
 ## Contributing to params_validator
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
