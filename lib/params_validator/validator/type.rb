@@ -2,6 +2,8 @@ module ParamsValidator
   module Validator
     module TypeInteger
       def self.valid?(value)
+        return true unless Presence.valid?(value)
+
         begin
           Integer(value)
           true
@@ -13,6 +15,8 @@ module ParamsValidator
 
     module TypeFloat
       def self.valid?(value)
+        return true unless Presence.valid?(value)
+
         begin
           Float(value)
           true
@@ -24,18 +28,24 @@ module ParamsValidator
 
     module TypeString
       def self.valid?(value)
+        return true unless Presence.valid?(value)
+
         value.kind_of? String
       end
     end
 
     module TypeArray
       def self.valid?(value)
+        return true unless Presence.valid?(value)
+
         value.kind_of? Array
       end
     end
 
     module TypeHash
       def self.valid?(value)
+        return true unless Presence.valid?(value)
+
         value.kind_of? Hash
       end
     end

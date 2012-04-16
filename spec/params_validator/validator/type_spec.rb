@@ -18,6 +18,14 @@ module ParamsValidator
       it 'should return false for String value with non float content' do
         TypeInteger.valid?('4.2').should be_false
       end
+
+      it 'should return true for empty String value' do
+        TypeInteger.valid?('').should be_true
+      end
+
+      it 'should return true for nil value' do
+        TypeInteger.valid?(nil).should be_true
+      end
     end
 
     describe TypeFloat do
@@ -32,6 +40,14 @@ module ParamsValidator
       it 'should return false for String value with non float content' do
         TypeFloat.valid?('true').should be_false
       end
+
+      it 'should return true for empty String value' do
+        TypeFloat.valid?('').should be_true
+      end
+
+      it 'should return true for nil value' do
+        TypeFloat.valid?(nil).should be_true
+      end
     end
 
     describe TypeString do
@@ -41,6 +57,10 @@ module ParamsValidator
 
       it 'should return false for non String value' do
         TypeString.valid?(42).should be_false
+      end
+
+      it 'should return true for nil value' do
+        TypeString.valid?(nil).should be_true
       end
     end
 
@@ -52,6 +72,14 @@ module ParamsValidator
       it 'should return false for non Array value' do
         TypeArray.valid?('a string').should be_false
       end
+
+      it 'should return true for empty String value' do
+        TypeArray.valid?('').should be_true
+      end
+
+      it 'should return true for nil value' do
+        TypeArray.valid?(nil).should be_true
+      end
     end
 
     describe TypeHash do
@@ -61,6 +89,14 @@ module ParamsValidator
 
       it 'should return false for non Hash value' do
         TypeHash.valid?('a string').should be_false
+      end
+
+      it 'should return true for empty String value' do
+        TypeHash.valid?('').should be_true
+      end
+
+      it 'should return true for nil value' do
+        TypeHash.valid?(nil).should be_true
       end
     end
   end
