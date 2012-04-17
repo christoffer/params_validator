@@ -1,4 +1,4 @@
-# params_validator ![Continuous Integration](https://secure.travis-ci.org/chdorner/epubinfo.png?branch=master)
+# params_validator [![Continuous Integration](https://secure.travis-ci.org/chdorner/epubinfo.png?branch=master)](https://secure.travis-ci.org/chdorner/params_validator) [![Dependencies](https://gemnasium.com/chdorner/epubinfo.png)](https://gemnasium.com/chdorner/params_validator)
 
 A DSL for validating request parameters, raises exceptions when validation failed. Currently only supports Rails.
 
