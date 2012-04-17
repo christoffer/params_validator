@@ -1,63 +1,49 @@
 module ParamsValidator
   module Validator
-    module TypeInteger
-      def self.error_message; "is not of type integer"; end
 
-      def self.valid?(value)
-        return true unless Presence.valid?(value)
+    private
 
-        begin
-          Integer(value)
-          true
-        rescue
-          false
+    module Base
+      def define_type_validator(type_name, &block)
+        @type_name = type_name
+        @block = block
+
+        def self.error_message
+          "is not of type #{@type_name.to_s.downcase}"
+        end
+
+        def self.valid?(value)
+          return true unless Presence.valid?(value)
+          return !!@block.call(value) rescue false
         end
       end
+    end
+
+    public
+
+    module TypeInteger
+      extend Base
+      define_type_validator('integer') { |value| Integer(value) }
     end
 
     module TypeFloat
-      def self.error_message; "is not of type float"; end
-
-      def self.valid?(value)
-        return true unless Presence.valid?(value)
-
-        begin
-          Float(value)
-          true
-        rescue
-          false
-        end
-      end
+      extend Base
+      define_type_validator('float') { |value| Float(value) }
     end
 
     module TypeString
-      def self.error_message; "is not of type string"; end
-
-      def self.valid?(value)
-        return true unless Presence.valid?(value)
-
-        value.kind_of? String
-      end
+      extend Base
+      define_type_validator('string') { |value| value.kind_of? String }
     end
 
     module TypeArray
-      def self.error_message; "is not of type array"; end
-
-      def self.valid?(value)
-        return true unless Presence.valid?(value)
-
-        value.kind_of? Array
-      end
+      extend Base
+      define_type_validator('array') { |value| value.kind_of? Array }
     end
 
     module TypeHash
-      def self.error_message; "is not of type hash"; end
-
-      def self.valid?(value)
-        return true unless Presence.valid?(value)
-
-        value.kind_of? Hash
-      end
+      extend Base
+      define_type_validator('hash') { |value| value.kind_of? Hash }
     end
   end
 end
