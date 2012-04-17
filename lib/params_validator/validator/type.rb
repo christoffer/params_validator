@@ -4,6 +4,7 @@ module ParamsValidator
     private
 
     module Base
+      private
       def define_type_validator(type_name, &block)
         @type_name = type_name
         @block = block
